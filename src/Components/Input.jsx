@@ -1,12 +1,30 @@
-/* eslint-disable react/prop-types */
-import React from "react";
+// Input.js
+import { useState } from "react";
 
-const Input = ({ value, onSubmit, onChange }) => {
+const Input = ({ onSubmit }) => {
+	const [guess, setGuess] = useState("");
+
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		onSubmit(guess);
+		setGuess("");
+	};
+
 	return (
-		<form onSubmit={onSubmit}>
+		<form onSubmit={handleSubmit}>
 			<label htmlFor="guess">Enter your guess</label>
 			<br />
-			<input type="text" name="guess" id="guess" value={value} onChange={onChange} />
+			<input
+				type="text"
+				name="guess"
+				id="guess"
+				value={guess}
+				onChange={(event) => setGuess(event.target.value.toUpperCase())}
+				required
+				minLength={5}
+				maxLength={5}
+			/>
+			<button type="submit">Submit</button>
 		</form>
 	);
 };
