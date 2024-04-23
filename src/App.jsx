@@ -1,24 +1,23 @@
+// App.js
+import React, { useState } from "react";
 import Input from "./Components/Input";
-import { useState } from "react";
+import Guess from "./Components/Guess";
+import Output from "./Components/Output";
+import "./index.css";
 
 function App() {
-	const [guess, setGuess] = useState("");
+	const [guesses, setGuesses] = useState([]);
 
-	const onSubmit = (event) => {
-		event.preventDefault();
-		console.log(guess);
-		setGuess("");
-	};
-
-	const onChange = (event) => {
-		event.target.value.toUpperCase();
-		setGuess(event.target.value);
+	const onSubmit = (guess) => {
+		const newGuesses = [...guesses, guess];
+		setGuesses(newGuesses);
 	};
 
 	return (
 		<>
 			<h1>Word Game</h1>
-			<Input value={guess} onSubmit={onSubmit} onChange={onChange} />
+			<Input onSubmit={onSubmit} />
+			<Output guesses={guesses} />
 		</>
 	);
 }
