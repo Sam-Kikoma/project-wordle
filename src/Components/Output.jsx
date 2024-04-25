@@ -1,11 +1,12 @@
 import React from "react";
 import Guess from "./Guess";
+import { range } from "../utils";
 
 const Output = ({ guesses }) => {
 	return (
 		<>
-			{guesses.map((guess, index) => (
-				<Guess key={index} guess={guess} />
+			{range(6).map((num) => (
+				<Guess key={num} guess={guesses[num]} />
 			))}
 		</>
 	);
