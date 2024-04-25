@@ -1,11 +1,12 @@
 import React from "react";
+import { range } from "../utils";
 
 const Guess = ({ guess }) => {
 	return (
 		<>
-			<p className="guess">
-				{guess.split("").map((letter, index) => (
-					<span key={index}>{letter}</span>
+			<p className>
+				{range(5).map((num) => (
+					<span key={num}>{guess ? guess[num] : undefined}</span>
 				))}
 			</p>
 		</>
