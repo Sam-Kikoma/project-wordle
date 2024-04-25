@@ -58,12 +58,9 @@ span {
 	margin: 0.3rem;
 	padding: 1rem;
 	border-radius: 4px;
-	width: 100px;
-	height: 14px;
-}
-
-.guess {
-	margin: 3rem 0.5rem;
+	display: inline-block;
+	width: 10px;
+	height: 10px;
 }
 
 @media (prefers-color-scheme: light) {
