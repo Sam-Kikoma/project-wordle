@@ -1,4 +1,4 @@
-const answers = [
+const values = [
 	"aback",
 	"abaft",
 	"abase",
@@ -41,8 +41,9 @@ const answers = [
 	"afoot",
 	"after",
 ];
+export const answers = values.map((value) => value.toUpperCase());
 
-const answerGen = (answers) => {
+export const answerGen = (answers) => {
 	const randomInt = Math.floor(Math.random() * answers.length);
 	return answers[randomInt];
 };
